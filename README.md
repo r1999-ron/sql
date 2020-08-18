@@ -80,3 +80,60 @@ WHERE first_name REGEXP 'b[ru]'
 SELECT *
 FROM customers
  WHERE phone IS NULL 
+
+# ORDER BY CLAUSE
+SELECT *
+FROM customers
+ORDER BY state, first_name DESC  -->STATE in ascending order and first_name in descending order
+
+# LIMIT CLAUSE
+SELECT *
+FROM customers
+LIMIT 3
+---Skip 6 customers and return 3
+SELECT *
+FROM customers
+LIMIT 6, 3
+
+# INNER Joins
+SELECT *
+ FROM customers c
+ JOIN orders o
+   ON c.customer_id = o.customer_id
+   
+# OUTER JOINS
+ SELECT *
+ FROM customers c
+  LEFT JOIN orders o
+    ON c.customer_id = o.customer_id  --> Returns all customers whether they have any orders or not
+    
+# USING CLAUSE
+If the column names are exactly same, we can simplify the join with the USING clause
+SELECT *
+FROM customers c
+ JOIN orders o
+   USING (customers_id)
+   
+# CROSS JOINS
+--- Combine every color with every size
+SELECT *
+FROM colors
+ CROSS JOIN sizes
+
+# Unions 
+--- Combine records from multiple result sets
+SELECT name, address
+ FROM customers
+ UNION
+ SELECT name, address
+ FROM clients
+
+# Inserting Data
+--- Insert a single record
+INSERT INTO customers(first_name, phone, points)
+VALUES ('RONAK', NULL, DEFAULT)
+
+INSERT INTO customers(first_name, phone, points)
+VALUES
+('RONAK', NULL, DEFAULT),
+('AKASH','1234', 10)
