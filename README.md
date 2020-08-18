@@ -110,6 +110,7 @@ SELECT *
     
 # USING CLAUSE
 If the column names are exactly same, we can simplify the join with the USING clause
+
 SELECT *
 FROM customers c
  JOIN orders o
