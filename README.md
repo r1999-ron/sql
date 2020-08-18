@@ -90,7 +90,8 @@ ORDER BY state, first_name DESC  -->STATE in ascending order and first_name in d
 SELECT *
 FROM customers
 LIMIT 3
----Skip 6 customers and return 3
+Skip 6 customers and return 3
+
 SELECT *
 FROM customers
 LIMIT 6, 3
@@ -115,13 +116,15 @@ FROM customers c
    USING (customers_id)
    
 # CROSS JOINS
---- Combine every color with every size
+Combine every color with every size
+
 SELECT *
 FROM colors
  CROSS JOIN sizes
 
 # Unions 
---- Combine records from multiple result sets
+ Combine records from multiple result sets
+ 
 SELECT name, address
  FROM customers
  UNION
@@ -129,7 +132,8 @@ SELECT name, address
  FROM clients
 
 # Inserting Data
---- Insert a single record
+ Insert a single record
+ 
 INSERT INTO customers(first_name, phone, points)
 VALUES ('RONAK', NULL, DEFAULT)
 
